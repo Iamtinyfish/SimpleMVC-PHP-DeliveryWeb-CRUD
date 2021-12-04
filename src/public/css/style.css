@@ -1,0 +1,35 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    object-fit: cover;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.logo-container {
+    width: 70px;
+}
+
+.page-title {
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+.register-section,
+.login-section {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.sidebar {
+    width: 300px;
+    height: 300px;
+    margin-left: -300px;
+}

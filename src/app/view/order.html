@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/order.css"> -->
+    <title>Đơn hàng</title>
+</head>
+
+<body>
+    <div class="wapper">
+        <header>
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light border-bottom bg-white">
+                <div class="container d-flex">
+                    <a class="navbar-brand" href="index.html">
+                        <div class="logo-container text-warning"><img src="./img/logo.png" class="img-fluid" alt="logo">TINYFISH</div>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse flex-grow-0" id="navbar">
+                        <ul class="nav fs-5">
+                            <li class="nav-item"><a class="nav-link text-dark" href="index.html">Trang chủ</a></li>
+                            <li class="nav-item"><a class="nav-link active text-white rounded-pill bg-warning" href="./order.html">Đặt giao hàng</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Liên hệ</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="" id="navbarAccountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Tài khoản
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarAccountDropdown">
+                                    <li><a class="dropdown-item" href="login.html">Đăng nhập</a></li>
+                                    <li><a class="dropdown-item" href="register.html">Đăng ký</a></li>
+                                    <li><a class="dropdown-item visually-hidden" href="account.html">Thông tin tài khoản</a></li>
+                                    <li><a class="dropdown-item visually-hidden" href="#">Đơn hàng của tôi</a></li>
+                                    <li><a class="dropdown-item visually-hidden" href="#logout">Đăng xuất</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="page-title">
+                <h1 class="text-center">Đặt giao hàng</h1>
+            </div>
+            <section class="container pb-5">
+                <form class="mx-auto row g-3" action=" " method="post " style="max-width:600px;">
+
+                    <label class="form-label fs-4">Thông tin lấy hàng</label>
+                    <div class="mb-3 col-md-6">
+                        <label for="sender-name-input " class="form-label ">Họ và tên</label>
+                        <input type="text " class="form-control " id="sender-name-input " required>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="sender-phone-input " class="form-label ">Số điện thoại</label>
+                        <input type="text" class="form-control " id="sender-phone-input " required>
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="sender-address-input " class="form-label ">Địa chỉ lấy hàng</label>
+                        <input type="text" class="form-control " id="sender-address-input " required>
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="note-input-1" class="form-label">Ghi chú</label>
+                        <textarea class="form-control" id="note-input-1" rows="3" placeholder="Lời nhắn cho nhân viên lấy hàng"></textarea>
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="sender-time-input" class="form-label ">Thời gian lấy hàng</label>
+                        <div class="input-group targetToggleCheckbox" id="sender-time-input">
+                            <select class="form-select timeSelect">
+                                <option selected>Giờ</option>
+                                <!-- add time with js -->
+                            </select>
+                            <select class="form-select">
+                                <option value="AM">Sáng</option>
+                                <option value="PM">Chiều</option>
+                            </select>
+                            <input type="date" class="form-control ">
+                        </div>
+                        <div class="form-check my-3 col-md-12">
+                            <input class="form-check-input toggleCheckbox" type="checkbox" value="" id="sender-anytime-checkbox">
+                            <label class="form-check-label" for="sender-anytime-checkbox">
+                              Bất kỳ thời gian nào.
+                            </label>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <label class="form-label fs-4">Thông tin giao hàng</label>
+                    <div class="mb-3 col-md-6">
+                        <label for="receiver-name-input " class="form-label ">Họ và tên</label>
+                        <input type="text " class="form-control " id="receiver-name-input " required>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="receiver-phone-input " class="form-label ">Số điện thoại</label>
+                        <input type="text" class="form-control " id="receiver-phone-input " required>
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="receiver-address-input " class="form-label ">Địa chỉ giao hàng</label>
+                        <input type="text" class="form-control " id="receiver-address-input " required>
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="note-input-2" class="form-label">Ghi chú</label>
+                        <textarea class="form-control" id="note-input-2" rows="3" placeholder="Lời nhắn cho nhân viên giao hàng"></textarea>
+                    </div>
+                    <div class="mb-3 col-md-12">
+                        <label for="receiver-time-input" class="form-label ">Thời gian giao hàng</label>
+                        <div class="input-group targetToggleCheckbox" id="receiver-time-input">
+                            <select class="form-select timeSelect">
+                                <option selected>Giờ</option>
+                                <!-- add time with js -->
+                            </select>
+                            <select class="form-select">
+                                <option value="AM">Sáng</option>
+                                <option value="PM">Chiều</option>
+                            </select>
+                            <input type="date" class="form-control ">
+                        </div>
+                        <div class="form-check my-3 col-md-12">
+                            <input class="form-check-input toggleCheckbox" type="checkbox" value="" id="receiver-anytime-checkbox">
+                            <label class="form-check-label" for="receiver-anytime-checkbox">
+                              Bất kỳ thời gian nào.
+                            </label>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <label class="form-label fs-4">Thông tin về hàng hoá</label>
+                    <div class="mb-3 col-md-12">
+                        <label for="good-input " class="form-label ">Loại hàng muốn gửi</label>
+                        <input type="text " class="form-control " id="good-input ">
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="good-weight-input " class="form-label ">Khối lượng</label>
+                        <input type="text " class="form-control " id="good-weight-input ">
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="good-size-input " class="form-label ">Kích thước</label>
+                        <input type="text " class="form-control " id="good-size-input ">
+                    </div>
+
+                    <label class="form-label">Phương tiện</label>
+                    <div class="mb-3 col-md-4">
+                        <input type="radio" class="btn-check toggleCheckbox" name="vehicle-option" id="motobike" checked>
+                        <label class="btn btn-outline-warning" for="motobike">Xe máy (10.000đ/km)</label>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <input type="radio" class="btn-check toggleCheckbox" name="vehicle-option" id="truck">
+                        <label class="btn btn-outline-warning" for="truck">Xe tải (30.000d/km)</label>
+                    </div>
+                    <div class="form-check my-3 col-md-6">
+                        <input class="form-check-input" type="checkbox" value="" id="vacuum-checkbox">
+                        <label class="form-check-label" for="vacuum-checkbox">
+                          Yêu cầu thùng giữ nhiệt (20.000đ)
+                        </label>
+                    </div>
+
+                    <label class="form-label text-danger fs-4">Tổng chi phí: </label>
+                    <button class="btn-lg btn-warning text-white my-3 px-5 " type="submit ">Gửi yêu cầu</button>
+                </form>
+            </section>
+        </main>
+        <footer class="footer text-white ">
+            <section class="footer__top bg-dark pt-5 d-flex flex-column align-items-center ">
+                <h1 class="pb-3 text-uppercase ">Tiny Fish .Co .Ltd</h1>
+                <div class="contact ">
+                    <i class="fas fa-map-marker-alt "></i> Minh Tân - Kiến Thuỵ - Hải Phòng <br>
+                    <i class="fas fa-envelope "></i> contact@tinyfish.com <br>
+                    <i class="fas fa-phone-alt "></i> 19001570 <br>
+                </div>
+                <div class="social fs-1 py-3 ">
+                    <a href="https://www.facebook.com/Iamtinyfish "><i class="fab fa-facebook text-white "></i></a>
+                    <a href="# "><i class="fab fa-twitter text-white "></i></a>
+                    <a href="# "><i class="fab fa-google text-white "></i></a>
+                    <a href="# "><i class="fab fa-instagram text-white "></i></a>
+                </div>
+            </section>
+            <section class="footer__bottom bg-black p-2 ">
+                Copyright &copy Nguyễn Trọng Hiếu 2021 | Email: hieunt.ptit.hp@gmail.com
+            </section>
+        </footer>
+    </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js "></script>
+    <script>
+        const toggleCheckboxes = document.querySelectorAll(".toggleCheckbox");
+        const targetToggleCheckboxes = document.querySelectorAll(".targetToggleCheckbox");
+        for (let i = 0; i < toggleCheckboxes.length; i++) {
+            toggleCheckboxes[i].addEventListener("change", () => {
+                (toggleCheckboxes[i].checked) ? targetToggleCheckboxes[i].classList.add("visually-hidden"): targetToggleCheckboxes[i].classList.remove("visually-hidden");
+            });
+        }
+
+        let timeSelects = document.querySelectorAll(".timeSelect")
+        for (let timeSelect of timeSelects) {
+            for (let i = 1; i <= 12; i++) {
+                let option = document.createElement("option");
+                option.value = i;
+                option.innerText = i + " giờ";
+                timeSelect.appendChild(option);
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+</html>
