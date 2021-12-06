@@ -1,4 +1,5 @@
 <?php
+
 class ShipProduct {
     private int $id;
     private Product $product;

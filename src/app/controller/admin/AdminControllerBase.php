@@ -1,6 +1,6 @@
 <?php
 
-class AdminController
+class AdminControllerBase
 {
     public array $__content = [];
 
@@ -17,8 +17,10 @@ class AdminController
         }
     }
 
-    public function authentication(){
-        if (isset($_SESSION["email"])==false)
-            header("location:AdminIndex.php?c=login");
+    public function authentication(): bool
+    {
+        if (isset($_SESSION['username']) && $_SESSION['role'] === 'admin') return true;
+        header('Location: http://' . $_SERVER['HTTP_HOST']);
+        return false;
     }
 }

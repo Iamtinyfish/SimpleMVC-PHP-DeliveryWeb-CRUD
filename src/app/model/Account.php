@@ -1,4 +1,5 @@
 <?php
+
 class Account {
     private int $id;
     private string $username;

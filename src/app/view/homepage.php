@@ -14,42 +14,13 @@
 
 <body>
 <div class="wapper">
-    <header>
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light border-bottom bg-white">
-            <div class="container d-flex">
-                <a class="navbar-brand d-inline-block" href="">
-                    <div class="logo-container text-warning"><img src="../../public/img/logo.png" class="img-fluid" alt="logo">TINYFISH
-                    </div>
-                </a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
-                        aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse flex-grow-0" id="navbar">
-                    <ul class="nav fs-5">
-                        <li class="nav-item"><a class="nav-link active text-white rounded-pill bg-warning"
-                                                href="./index.php">Trang chủ</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark" href="order.html">Đặt giao hàng</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Liên hệ</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="" id="navbarAccountDropdown"
-                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Tài khoản
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarAccountDropdown">
-                                <li><a class="dropdown-item" href="login.php">Đăng nhập</a></li>
-                                <li><a class="dropdown-item" href="register.html">Đăng ký</a></li>
-                                <li><a class="dropdown-item visually-hidden" href="account.html">Thông tin tài
-                                    khoản</a></li>
-                                <li><a class="dropdown-item visually-hidden" href="#">Đơn hàng của tôi</a></li>
-                                <li><a class="dropdown-item visually-hidden" href="#logout">Đăng xuất</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <!--    HEADER    -->
+    <?php
+    require_once PATH_APP . '/core/layout/header.php';
+    getHeader('homepage');
+    ?>
+    <!--    HEADER    -->
+
     <main class="text-center">
         <section class="banner">
             <div>
@@ -190,28 +161,13 @@
             </div>
         </section>
     </main>
-    <footer class="footer text-white">
-        <section class="footer__top bg-dark pt-5 d-flex flex-column align-items-center">
-            <h1 class="pb-3 text-uppercase">Tiny Fish .Co .Ltd</h1>
-            <div class="contact">
-                <i class="fas fa-map-marker-alt"></i> Minh Tân - Kiến Thuỵ - Hải Phòng <br>
-                <i class="fas fa-envelope"></i> contact@tinyfish.com <br>
-                <i class="fas fa-phone-alt"></i> 19001570 <br>
-            </div>
-            <div class="social fs-1 py-3">
-                <a href="https://www.facebook.com/Iamtinyfish"><i class="fab fa-facebook text-white"></i></a>
-                <a href="#"><i class="fab fa-twitter text-white"></i></a>
-                <a href="#"><i class="fab fa-google text-white"></i></a>
-                <a href="#"><i class="fab fa-instagram text-white"></i></a>
-            </div>
-        </section>
-        <section class="footer__bottom bg-black p-2">
-            Copyright &copy Nguyễn Trọng Hiếu 2021 | Email: hieunt.ptit.hp@gmail.com
-        </section>
-    </footer>
+
+    <!--    FOOTER    -->
+    <?php require_once PATH_APP . '/core/layout/footer.php'; ?>
+    <!--    FOOTER    -->
 </div>
 
-<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../public/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     const elementList = document.querySelectorAll(".slideAnim");
     window.addEventListener("scroll", function () {
