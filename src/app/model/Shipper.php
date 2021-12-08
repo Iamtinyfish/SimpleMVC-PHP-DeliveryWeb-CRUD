@@ -13,30 +13,14 @@ class Shipper {
     private string $note;
     private Account $account;
 
-    /**
-     * @param int $id
-     * @param string $name
-     * @param string $birthday
-     * @param string $IDCard
-     * @param string $phone
-     * @param string $address
-     * @param string $vehicle
-     * @param string $licensePlate
-     * @param string $note
-     * @param Account $account
-     */
-    public function __construct(int $id, string $name, string $birthday, string $IDCard, string $phone, string $address, string $vehicle, string $licensePlate, string $note, Account $account)
-    {
+    public function __construct() { }
+
+    public function setParamType1(int $id,string $name,string $phone,string $vehicle,string $licensePlate) {
         $this->id = $id;
         $this->name = $name;
-        $this->birthday = $birthday;
-        $this->IDCard = $IDCard;
         $this->phone = $phone;
-        $this->address = $address;
         $this->vehicle = $vehicle;
         $this->licensePlate = $licensePlate;
-        $this->note = $note;
-        $this->account = $account;
     }
 
     /**

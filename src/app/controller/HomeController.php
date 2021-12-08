@@ -3,17 +3,29 @@ require_once 'ControllerBase.php';
 
 class HomeController extends ControllerBase {
     public function index() {
-        $this->loadView('homepage');
+        require_once PATH_APP . '/view/Homepage.php';
+        $view = new Homepage();
+        $view->render();
     }
 
     public function login() {
         //Nếu đăng nhập rồi
         if ($this->authentication()) {
-            header('Location: http://' . $_SERVER['HTTP_HOST']);    //redirect đến trang chủ
+            header('Location: http://' . $_SERVER['HTTP_HOST']);//redirect đến trang chủ
         }
 
-        if (isset($_POST['username']) === false) //Nếu không phải submit form thì load trang login
-            $this->loadView('login');
+        //Nếu không phải submit form thì load trang login
+        if (isset($_POST['username']) === false) {
+            require_once PATH_APP . '/view/LoginPage.php';
+            $data = [];
+            if (isset($_SESSION['login_fail'])) {
+                $data = array('login_fail' => true);
+                unset($_SESSION['login_fail']);
+            }
+            $view = new LoginPage($data);
+            $view->render();
+        }
+
         else {  //Ngược lại thì check login
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -58,9 +70,11 @@ class HomeController extends ControllerBase {
     }
 
     public function contact() {
-        if (isset($_POST['name']) === false) //Nếu không phải submit form thì load trang contact
-            $this->loadView('contact');
-        else {
+        if (isset($_POST['name']) === false) {//Nếu không phải submit form thì load trang contact
+            require_once PATH_APP . '/view/ContactPage.php';
+            $view = new ContactPage();
+            $view->render();
+        } else {
             $name = $_POST['name'];
             $email = $_POST['email'];
             $title = $_POST['title'];

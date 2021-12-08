@@ -8,7 +8,10 @@ class AdminHomeController extends AdminControllerBase {
     }
 
     public function dashboard() {
-        if ($this->authentication())
-            $this->loadView('dashboard');
+        if ($this->authentication()) {
+            require_once 'ManageShipperController.php';
+            $controller = new ManageShipperController();
+            $controller->manage_shipper();
+        }
     }
 }

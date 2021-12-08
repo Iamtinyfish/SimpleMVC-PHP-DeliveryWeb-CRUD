@@ -1,5 +1,6 @@
 <?php
-require 'DAO.php';
+require_once 'DAO.php';
+require_once PATH_APP . '/model/Account.php';
 
 class AccountDAO extends DAO {
 

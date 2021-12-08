@@ -22,7 +22,7 @@ class Router
             }
         }
 
-       die('not found route!');
+        die('not found route!');
 //        throw new RouteNotFoundException("No routes matching {$this->path}");
     }
 }

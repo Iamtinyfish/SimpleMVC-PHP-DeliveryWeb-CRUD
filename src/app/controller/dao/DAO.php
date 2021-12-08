@@ -1,5 +1,5 @@
 <?php
-require PATH_APP . '/config/Config.php';
+require_once PATH_APP . '/config/Config.php';
 
 class DAO {
     public mysqli|null|false $conn;
