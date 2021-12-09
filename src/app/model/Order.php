@@ -2,49 +2,18 @@
 
 class Order {
     private int $id;
-    private Provider $provider;
-    private string $receiverName;
-    private string $receiverPhone;
-    private string $receiverAddress;
-    private string $receiverTime;
-    private ShipProduct $shipProduct;
-    private float $cost;
-    private bool $isCOD;
-    private string $status;
-    private Shipper $shipper;
+    private Sender $sender;
+    private Receiver $receiver;
+    private GoodsInfo $goodsInfo;
+    private int $COD;
+    private int $cost;
     private string $note;
+    private string $status;
+    private Provider $provider;
+    private Shipper $shipper;
 
-    /**
-     * @param int $id
-     * @param Provider $provider
-     * @param string $receiverName
-     * @param string $receiverPhone
-     * @param string $receiverAddress
-     * @param string $receiverTime
-     * @param ShipProduct $shipProduct
-     * @param float $cost
-     * @param bool $isCOD
-     * @param string $status
-     * @param Shipper $shipper
-     * @param string $note
-     */
-
-
-
-    public function __construct(int $id, Provider $provider, string $receiverName, string $receiverPhone, string $receiverAddress, string $receiverTime, ShipProduct $shipProduct, float $cost, bool $isCOD, string $status, Shipper $shipper, string $note)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->provider = $provider;
-        $this->receiverName = $receiverName;
-        $this->receiverPhone = $receiverPhone;
-        $this->receiverAddress = $receiverAddress;
-        $this->receiverTime = $receiverTime;
-        $this->shipProduct = $shipProduct;
-        $this->cost = $cost;
-        $this->isCOD = $isCOD;
-        $this->status = $status;
-        $this->shipper = $shipper;
-        $this->note = $note;
     }
 
     /**
@@ -64,131 +33,99 @@ class Order {
     }
 
     /**
-     * @return Provider
+     * @return Sender
      */
-    public function getProvider(): Provider
+    public function getSender(): Sender
     {
-        return $this->provider;
+        return $this->sender;
     }
 
     /**
-     * @param Provider $provider
+     * @param Sender $sender
      */
-    public function setProvider(Provider $provider): void
+    public function setSender(Sender $sender): void
     {
-        $this->provider = $provider;
+        $this->sender = $sender;
     }
 
     /**
-     * @return string
+     * @return Receiver
      */
-    public function getReceiverName(): string
+    public function getReceiver(): Receiver
     {
-        return $this->receiverName;
+        return $this->receiver;
     }
 
     /**
-     * @param string $receiverName
+     * @param Receiver $receiver
      */
-    public function setReceiverName(string $receiverName): void
+    public function setReceiver(Receiver $receiver): void
     {
-        $this->receiverName = $receiverName;
+        $this->receiver = $receiver;
     }
 
     /**
-     * @return string
+     * @return GoodsInfo
      */
-    public function getReceiverPhone(): string
+    public function getGoodsInfo(): GoodsInfo
     {
-        return $this->receiverPhone;
+        return $this->goodsInfo;
     }
 
     /**
-     * @param string $receiverPhone
+     * @param GoodsInfo $goodsInfo
      */
-    public function setReceiverPhone(string $receiverPhone): void
+    public function setGoodsInfo(GoodsInfo $goodsInfo): void
     {
-        $this->receiverPhone = $receiverPhone;
+        $this->goodsInfo = $goodsInfo;
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getReceiverAddress(): string
+    public function getCOD(): int
     {
-        return $this->receiverAddress;
+        return $this->COD;
     }
 
     /**
-     * @param string $receiverAddress
+     * @param int $COD
      */
-    public function setReceiverAddress(string $receiverAddress): void
+    public function setCOD(int $COD): void
     {
-        $this->receiverAddress = $receiverAddress;
+        $this->COD = $COD;
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getReceiverTime(): string
-    {
-        return $this->receiverTime;
-    }
-
-    /**
-     * @param string $receiverTime
-     */
-    public function setReceiverTime(string $receiverTime): void
-    {
-        $this->receiverTime = $receiverTime;
-    }
-
-    /**
-     * @return ShipProduct
-     */
-    public function getShipProduct(): ShipProduct
-    {
-        return $this->shipProduct;
-    }
-
-    /**
-     * @param ShipProduct $shipProduct
-     */
-    public function setShipProduct(ShipProduct $shipProduct): void
-    {
-        $this->shipProduct = $shipProduct;
-    }
-
-    /**
-     * @return float
-     */
-    public function getCost(): float
+    public function getCost(): int
     {
         return $this->cost;
     }
 
     /**
-     * @param float $cost
+     * @param int $cost
      */
-    public function setCost(float $cost): void
+    public function setCost(int $cost): void
     {
         $this->cost = $cost;
     }
 
     /**
-     * @return bool
+     * @return string
      */
-    public function isCOD(): bool
+    public function getNote(): string
     {
-        return $this->isCOD;
+        return $this->note;
     }
 
     /**
-     * @param bool $isCOD
+     * @param string $note
      */
-    public function setIsCOD(bool $isCOD): void
+    public function setNote(string $note): void
     {
-        $this->isCOD = $isCOD;
+        $this->note = $note;
     }
 
     /**
@@ -208,6 +145,22 @@ class Order {
     }
 
     /**
+     * @return Provider
+     */
+    public function getProvider(): Provider
+    {
+        return $this->provider;
+    }
+
+    /**
+     * @param Provider $provider
+     */
+    public function setProvider(Provider $provider): void
+    {
+        $this->provider = $provider;
+    }
+
+    /**
      * @return Shipper
      */
     public function getShipper(): Shipper
@@ -221,21 +174,5 @@ class Order {
     public function setShipper(Shipper $shipper): void
     {
         $this->shipper = $shipper;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNote(): string
-    {
-        return $this->note;
-    }
-
-    /**
-     * @param string $note
-     */
-    public function setNote(string $note): void
-    {
-        $this->note = $note;
     }
 }

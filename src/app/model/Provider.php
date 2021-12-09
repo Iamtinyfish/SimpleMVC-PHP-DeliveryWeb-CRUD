@@ -1,5 +1,6 @@
 <?php
 
+require_once 'Account.php';
 
 class Provider {
     private int $id;
@@ -8,7 +9,6 @@ class Provider {
     private string $address;
     private string $email;
     private Account $account;
-    private Product $products;
     private string $note;
 
     /**
@@ -18,10 +18,10 @@ class Provider {
      * @param string $address
      * @param string $email
      * @param Account $account
-     * @param Product $products
+     * @param GoodsInfo $products
      * @param string $note
      */
-    public function __construct(int $id, string $name, string $phone, string $address, string $email, Account $account, Product $products, string $note)
+    public function __construct(int $id, string $name, string $phone, string $address, string $email, Account $account, GoodsInfo $products, string $note)
     {
         $this->id = $id;
         $this->name = $name;
@@ -130,17 +130,17 @@ class Provider {
     }
 
     /**
-     * @return Product
+     * @return GoodsInfo
      */
-    public function getProducts(): Product
+    public function getProducts(): GoodsInfo
     {
         return $this->products;
     }
 
     /**
-     * @param Product $products
+     * @param GoodsInfo $products
      */
-    public function setProducts(Product $products): void
+    public function setProducts(GoodsInfo $products): void
     {
         $this->products = $products;
     }
