@@ -1,8 +1,8 @@
 <?php
 
 require_once 'AbstractPage.php';
-require_once PATH_APP . '/core/layout/Header.php';
-require_once PATH_APP . '/core/layout/Footer.php';
+require_once APP_PATH . '/core/layout/Header.php';
+require_once APP_PATH . '/core/layout/Footer.php';
 
 /**
  * @property string $header
@@ -87,8 +87,7 @@ class ContactPage extends AbstractPage
                     <!--    FOOTER    -->
                     $this->footer
                 </div>
-            
-                <script src='../../public/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'></script>
+           
             </body>
             
             </html>

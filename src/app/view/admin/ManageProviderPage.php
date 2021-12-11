@@ -2,7 +2,7 @@
 use JetBrains\PhpStorm\Pure;
 
 require_once APP_PATH . '/view/AbstractPage.php';
-require_once APP_PATH . '/model/Shipper.php';
+require_once APP_PATH . '/model/Provider.php';
 require_once APP_PATH . '/core/layout/Header.php';
 require_once APP_PATH . '/core/layout/Sidebar.php';
 
@@ -10,8 +10,8 @@ require_once APP_PATH . '/core/layout/Sidebar.php';
  * @property string $header
  * @property string $sidebar
  */
-class ManageShipperPage extends AbstractPage {
-    private string $shipper_list = 'Không tìm thấy thông tin shipper nào!';
+class ManageProviderPage extends AbstractPage {
+    private string $provider_list = 'Không tìm thấy thông tin nhà cung cấp nào!';
 
     protected function loadHeader() : void
     {
@@ -21,43 +21,42 @@ class ManageShipperPage extends AbstractPage {
 
     protected function loadSidebar() : void
     {
-        $sidebar = new Sidebar('admin','manage-shipper');
+        $sidebar = new Sidebar('admin','manage-provider');
         $this->sidebar = $sidebar->render();
     }
 
     protected function loadData($data = []) : void
     {
         if (!empty($data)) {
-            $shipper_list = [];
-            foreach($data as $shipper) {
-                array_push($shipper_list,$this->shipper_card($shipper));
+            $provider_list = [];
+            foreach($data as $provider) {
+                array_push($provider_list,$this->provider_card($provider));
             }
-            $this->shipper_list = implode(' ',$shipper_list);
+            $this->provider_list = implode(' ',$provider_list);
         }
     }
 
     protected function loadFooter() : void { }
 
-    #[Pure] private function shipper_card(Shipper $shipper) : string
+    #[Pure] private function provider_card(Provider $provider) : string
     {
         return "
-            <div id='$shipper->id' class='card' style='width: 18rem;'>
-                <img src='../../../public/img/shipper-avatar.jpg' class='card-img-top' alt='shipper-avatar'>
+            <div id='$provider->id' class='card' style='width: 18rem;'>
+                <img src='../../../public/img/provider-avatar.jpg' class='card-img-top' alt='provider-avatar'>
                 <div class='card-body'>
-                    <h5 class='card-title'>$shipper->name</h5>
+                    <h5 class='card-title'>$provider->name</h5>
                     <p class='card-text'>
-                        ID: $shipper->id<br>
-                        Số điện thoại: $shipper->phone<br>
-                        Phương tiện: $shipper->vehicle<br>
-                        Biển số: $shipper->licensePlate
+                        ID: $provider->id<br>
+                        Số điện thoại: $provider->phone<br>
+                        Email: $provider->email
                     </p>
-                    <button value='$shipper->id' class='btn btn-info text-white detailShipperBtn'>
+                    <button value='$provider->id' class='btn btn-info text-white detailProviderBtn'>
                         <i class='fas fa-info'></i> Chi tiết
                     </button>
-                    <button value='$shipper->id' class='btn btn-warning text-white editShipperBtn'>
+                    <button value='$provider->id' class='btn btn-warning text-white editProviderBtn'>
                         <i class='fas fa-user-edit'></i> Sửa
                     </button>
-                    <button value='$shipper->id' class='btn btn-danger deleteShipperBtn'>
+                    <button value='$provider->id' class='btn btn-danger deleteProviderBtn'>
                         <i class='fas fa-trash'></i> Xóa
                     </button>
                 </div>
@@ -67,7 +66,7 @@ class ManageShipperPage extends AbstractPage {
 
     public function render() : void
     {
-        $search_link = 'http://' . $_SERVER['HTTP_HOST'] . '/admin/manage-shipper/search';
+        $search_link = 'http://' . $_SERVER['HTTP_HOST'] . '/admin/manage-provider/search';
         echo "
             <!DOCTYPE html>
             <html lang='en'>
@@ -95,7 +94,7 @@ class ManageShipperPage extends AbstractPage {
                         <!-- toolbar -->
                         <div class='py-3 d-flex flex-row justify-content-between'>
                             <div>
-                                <button type='button' class='btn btn-primary addShipperBtn'>
+                                <button type='button' class='btn btn-primary addProviderBtn'>
                                     <i class='fas fa-user-plus'></i> Thêm
                                 </button>
                                 <button type='button' class='btn btn-primary statisticBtn'>Thống kê</button>
@@ -112,12 +111,12 @@ class ManageShipperPage extends AbstractPage {
                         </div>
             
                         <div class='list d-flex flex-row flex-wrap'>
-                            $this->shipper_list
+                            $this->provider_list
                         </div>
                     </section>
                 </main>
                 
-                <script src='../../../public/js/manageShipper.js'></script>
+                <script src='../../../public/js/manageProvider.js'></script>
             </body>
             
             </html>

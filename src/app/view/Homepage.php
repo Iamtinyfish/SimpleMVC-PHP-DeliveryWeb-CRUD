@@ -1,7 +1,7 @@
 <?php
 require_once 'AbstractPage.php';
-require_once PATH_APP . '/core/layout/Header.php';
-require_once PATH_APP . '/core/layout/Footer.php';
+require_once APP_PATH . '/core/layout/Header.php';
+require_once APP_PATH . '/core/layout/Footer.php';
 
 /**
  * @property string $header

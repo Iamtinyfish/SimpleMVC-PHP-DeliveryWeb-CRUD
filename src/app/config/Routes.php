@@ -1,5 +1,7 @@
 <?php
-require_once PATH_APP . '/core/routing/RoutesCollection.php';
+require_once APP_PATH . '/core/routing/RoutesCollection.php';
+
+RoutesCollection::any('/404','HomeController','error404');
 
 RoutesCollection::any('/','HomeController','index');
 
@@ -11,30 +13,36 @@ RoutesCollection::any('/admin/dashboard','AdminHomeController','dashboard',true)
 
 //=====================================================Manage Shipper - CRUD=====================================================//
 //show manage shipper view
-RoutesCollection::any('/admin/dashboard/manage-shipper','ManageShipperController','manage_shipper',true);
+RoutesCollection::any('/admin/manage-shipper','ManageShipperController','manage_shipper',true);
 
-RoutesCollection::get('/admin/dashboard/manage-shipper/search','ManageShipperController','search',true);
+RoutesCollection::get('/admin/manage-shipper/search','ManageShipperController','search',true);
 
-RoutesCollection::get('/admin/dashboard/manage-shipper/read','ManageShipperController','read',true);
+RoutesCollection::get('/admin/manage-shipper/detail','ManageShipperController','detail',true);
 
-RoutesCollection::post('/admin/dashboard/manage-shipper/create','ManageShipperController','create',true);
+RoutesCollection::post('/admin/manage-shipper/add','ManageShipperController','add',true);
 
-RoutesCollection::post('/admin/dashboard/manage-shipper/update','ManageShipperController','update',true);
+RoutesCollection::post('/admin/manage-shipper/update','ManageShipperController','update',true);
 
-RoutesCollection::get('/admin/dashboard/manage-shipper/delete','ManageShipperController','delete',true);
+RoutesCollection::get('/admin/manage-shipper/delete','ManageShipperController','delete',true);
+
+RoutesCollection::get('/admin/manage-shipper/statistic','ManageShipperController','statistic',true);
 //===============================================================================================================================//
 
 //=====================================================Manage Provider - CRUD====================================================//
 //show manage provider view
-RoutesCollection::any('/admin/dashboard/manage-provider','ManageProviderController','manage_provider',true);
+RoutesCollection::any('/admin/manage-provider','ManageProviderController','manage_provider',true);
 
-RoutesCollection::get('/admin/dashboard/manage-provider/read','ManageProviderController','read',true);
+RoutesCollection::get('/admin/manage-provider/search','ManageProviderController','search',true);
 
-RoutesCollection::post('/admin/dashboard/manage-provider/create','ManageProviderController','create',true);
+RoutesCollection::get('/admin/manage-provider/detail','ManageProviderController','detail',true);
 
-RoutesCollection::post('/admin/dashboard/manage-provider/update','ManageProviderController','update',true);
+RoutesCollection::post('/admin/manage-provider/add','ManageProviderController','add',true);
 
-RoutesCollection::get('/admin/dashboard/manage-provider/delete','ManageProviderController','delete',true);
+RoutesCollection::post('/admin/manage-provider/update','ManageProviderController','update',true);
+
+RoutesCollection::get('/admin/manage-provider/delete','ManageProviderController','delete',true);
+
+RoutesCollection::get('/admin/manage-provider/statistic','ManageProviderController','statistic',true);
 //===============================================================================================================================//
 
 //======================================================Manage Order - CRUD======================================================//

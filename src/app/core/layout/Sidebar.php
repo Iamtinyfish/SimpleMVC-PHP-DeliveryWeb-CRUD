@@ -24,13 +24,13 @@ class Sidebar {
 
     private function set_admin_menu($current_page) : void
     {
-        array_push($this->menu,$this->sidebar_item('Quản lý shipper','admin/dashboard/manage-shipper',
+        array_push($this->menu,$this->sidebar_item('Quản lý shipper','admin/manage-shipper',
             'fas fa-users',$current_page === 'manage-shipper'));
-        array_push($this->menu,$this->sidebar_item('Quản lý nhà cung cấp','admin/dashboard/manage-provider',
+        array_push($this->menu,$this->sidebar_item('Quản lý nhà cung cấp','admin/manage-provider',
             'fas fa-users',$current_page === 'manage-provider'));
-        array_push($this->menu,$this->sidebar_item('Quản lý đơn giao hàng','admin/dashboard/manage-order',
+        array_push($this->menu,$this->sidebar_item('Quản lý đơn giao hàng','admin/manage-order',
             'fas fa-file-invoice',$current_page === 'manage-order'));
-        array_push($this->menu,$this->sidebar_item('Hòm thư liên hệ','admin/dashboard/manage-contact',
+        array_push($this->menu,$this->sidebar_item('Hòm thư liên hệ','admin/manage-contact',
             'fas fa-envelope',$current_page === 'manage-contact'));
     }
 

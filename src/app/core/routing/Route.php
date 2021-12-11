@@ -43,9 +43,9 @@ class Route
 
     public function exec() {
         if ($this->isAdmin)
-            require_once PATH_APP . '/controller/admin/' . $this->controller . '.php';
+            require_once APP_PATH . '/controller/admin/' . $this->controller . '.php';
         else
-            require_once PATH_APP . '/controller/' . $this->controller . '.php';
+            require_once APP_PATH . '/controller/' . $this->controller . '.php';
 
         $controller = new ($this->controller)();
         $controller->{$this->action}();

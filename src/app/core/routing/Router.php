@@ -1,7 +1,7 @@
 <?php
 
 require_once 'RoutesCollection.php';
-require_once PATH_APP . '/config/Routes.php';
+require_once APP_PATH . '/config/Routes.php';
 
 class Router
 {
@@ -22,7 +22,6 @@ class Router
             }
         }
 
-        die('not found route!');
-//        throw new RouteNotFoundException("No routes matching {$this->path}");
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/404');
     }
 }

@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-const PATH_APP = __DIR__ . '/app';
+const APP_PATH = __DIR__ . '/app';
 
-require_once PATH_APP . '/core/routing/Router.php';;
+require_once APP_PATH . '/core/routing/Router.php';;
 
 $router = new Router();
 

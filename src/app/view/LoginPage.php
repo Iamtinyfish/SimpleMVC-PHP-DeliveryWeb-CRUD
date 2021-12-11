@@ -1,6 +1,6 @@
 <?php
 require_once 'AbstractPage.php';
-require_once PATH_APP . '/core/layout/Header.php';
+require_once APP_PATH . '/core/layout/Header.php';
 
 /**
  * @property string $header
@@ -70,7 +70,6 @@ class LoginPage extends AbstractPage {
                     </main>
                 </div>
             
-                <script src='../../public/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js '></script>
                 <script>
                     let eyeIcon = document.querySelector('.fa-eye');
                     eyeIcon.addEventListener('click', () => {

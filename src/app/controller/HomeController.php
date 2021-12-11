@@ -3,20 +3,24 @@ require_once 'ControllerBase.php';
 
 class HomeController extends ControllerBase {
     public function index() {
-        require_once PATH_APP . '/view/Homepage.php';
+        require_once APP_PATH . '/view/Homepage.php';
         $view = new Homepage();
+        $view->render();
+    }
+
+    public function error404() {
+        require_once APP_PATH . '/view/Error404Page.php';
+        $view = new Error404Page();
         $view->render();
     }
 
     public function login() {
         //Nếu đăng nhập rồi
-        if ($this->authentication()) {
-            header('Location: http://' . $_SERVER['HTTP_HOST']);//redirect đến trang chủ
-        }
+        $this->authentication();
 
         //Nếu không phải submit form thì load trang login
         if (isset($_POST['username']) === false) {
-            require_once PATH_APP . '/view/LoginPage.php';
+            require_once APP_PATH . '/view/LoginPage.php';
             $data = [];
             if (isset($_SESSION['login_fail'])) {
                 $data = array('login_fail' => true);
@@ -31,8 +35,8 @@ class HomeController extends ControllerBase {
             $password = $_POST['password'];
 
             //lấy thông tin tài khoản từ database
-            require_once PATH_APP . '/controller/dao/AccountDAO.php';
-            require_once PATH_APP . '/model/Account.php';
+            require_once APP_PATH . '/controller/dao/AccountDAO.php';
+            require_once APP_PATH . '/model/Account.php';
             $accountDAO = new AccountDAO();
             $account = $accountDAO->get($username);
 
@@ -44,15 +48,15 @@ class HomeController extends ControllerBase {
 
             //hash mật khẩu: pass + salt + pepper
             $pepper = 'tinyfish';
-            $hashPwd = md5($password . ($account->getSalt()) . $pepper);
+            $hashPwd = md5($password . $account->salt . $pepper);
 
             //So sánh kết quả vừa hash với hash lưu trong database
-            if ($account->getPassword() === $hashPwd) {
+            if ($account->password === $hashPwd) {
                 //Đăng nhập thành công
                 unset($_SESSION['login_fail']);
-                $_SESSION['id'] = $account->getId();
+                $_SESSION['id'] = $account->id;
                 $_SESSION['username'] = $username;
-                $_SESSION['role'] = $account->getRole();
+                $_SESSION['role'] = $account->role;
 
                 //Chuyển đến trang chủ
                 header('Location: http://' . $_SERVER['HTTP_HOST']);
@@ -71,7 +75,7 @@ class HomeController extends ControllerBase {
 
     public function contact() {
         if (isset($_POST['name']) === false) {//Nếu không phải submit form thì load trang contact
-            require_once PATH_APP . '/view/ContactPage.php';
+            require_once APP_PATH . '/view/ContactPage.php';
             $view = new ContactPage();
             $view->render();
         } else {
